@@ -1,12 +1,29 @@
-import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import React, { useContext, useHistory } from "react";
+import { MovieContext } from "../context/movieContext";
+import { getMovie } from "../services/movieService";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
+  const [movie, setMovie] = useContext(MovieContext);
+
+  const getMovieInfo = async (id) => {
+    let MyMovie = undefined;
+    try {
+      const response = await getMovie(id);
+      MyMovie = response.data;
+      setMovie(MyMovie);
+    } catch (exception) {
+      if (exception.response && exception.response.status === 404) {
+        toast.error("Movie not found");
+      }
+    }
+  };
   return (
     <React.Fragment>
       <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <button
-          className="navbar-toggler position-absolute d-md-none collapsed"
+          className="navbar-toggler d-md-none collapsed"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#sidebarMenu"
@@ -16,9 +33,9 @@ const SideBar = () => {
         >
           <p className="navbar-toggler-icon"></p>
         </button>
-        <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+        <p className="navbar-brand col-md-3 col-lg-2 me-0 px-3">
           Star Wars Films
-        </a>
+        </p>
       </header>
       <nav
         id="sidebarMenu"
@@ -26,73 +43,39 @@ const SideBar = () => {
       >
         <div className="position-sticky pt-3">
           <ul className="nav flex-column">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+            <li className="nav-item" onClick={() => getMovieInfo(4)}>
+              <Link className="nav-link" to="/">
                 Episode I: The Phantom Menace
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
+            <li className="nav-item" onClick={() => getMovieInfo(5)}>
+              <Link className="nav-link" to="/">
                 Episode II: Attack Of The Clones
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
+            <li className="nav-item" onClick={() => getMovieInfo(6)}>
+              <Link className="nav-link" to="/">
                 Episode III: Revenge Of The Sith
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
+            <li className="nav-item" onClick={() => getMovieInfo(1)}>
+              <Link className="nav-link" to="/">
                 Episode IV: A New Hope
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                V: The Empire Strikes Back
-              </a>
+            <li className="nav-item" onClick={() => getMovieInfo(2)}>
+              <Link className="nav-link" to="/">
+                Episode V: The Empire Strikes Back
+              </Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                <span data-feather="layers"></span>
+            <li className="nav-item" onClick={() => getMovieInfo(3)}>
+              <Link className="nav-link" to="/">
                 Episode VI: Return Of the Jedi
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Episode VII: The Force Awakens
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Episode VIII: The Last Jedi
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Episode VI: The Rise Of Skywalker
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
       </nav>
-
-      {/* <div className="d-flex flex-column flex-shrink-0 p-3 bg-light">
-        <span className="fs-4">Star Wars Movies</span>
-        <ul className="nav nav-pills flex-column mb-auto">
-          <li>Episode I: The Phantom Menace </li>
-          <li>Episode II: Attack Of The Clones</li>
-          <li>Episode II: Revenge Of The Sith</li>
-          <li>Episode IV: A New Hope</li>
-          <li>Episode V: The Empire Strikes Back</li>
-          <li>Episode VI: Return Of the Jedi</li>
-          <li>Episode VII: The Force Awakens</li>
-          <li>Episode VIII: The Last Jedi</li>
-          <li>Episode IX: The Rise Of Skywalker</li>
-        </ul>
-      </div> */}
     </React.Fragment>
   );
 };
