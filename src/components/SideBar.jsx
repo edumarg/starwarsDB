@@ -1,14 +1,17 @@
 import React, { useContext, useHistory } from "react";
 import { MovieContext } from "../context/movieContext";
+import { LoadingContext } from "../context/loadingContext";
 import { getMovie } from "../services/movieService";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const [movie, setMovie] = useContext(MovieContext);
+  const [loading, setLoading] = useContext(LoadingContext);
 
   const getMovieInfo = async (id) => {
     let MyMovie = undefined;
+    setLoading(true);
     try {
       const response = await getMovie(id);
       MyMovie = response.data;
@@ -18,6 +21,7 @@ const SideBar = () => {
         toast.error("Movie not found");
       }
     }
+    setLoading(false);
   };
   return (
     <React.Fragment>
@@ -39,9 +43,9 @@ const SideBar = () => {
       </header>
       <nav
         id="sidebarMenu"
-        className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+        className="col-md-3 col-lg-2 d-md-block text-white bg-dark sidebar collapse App-Header"
       >
-        <div className="position-sticky pt-3">
+        <div className="position-sticky pt-3 ">
           <ul className="nav flex-column">
             <li className="nav-item" onClick={() => getMovieInfo(4)}>
               <Link className="nav-link" to="/">

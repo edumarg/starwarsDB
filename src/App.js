@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Content from "./components/Content";
 import SideBar from "./components/SideBar";
 import { MovieContextProvider } from "./context/movieContext";
+import { LoadingContextProvider } from "./context/loadingContext";
 import Footer from "./components/footer";
 
 function App() {
@@ -21,16 +22,19 @@ function App() {
         draggable
         pauseOnHover
       />
-      <MovieContextProvider>
-        <div className="App">
-          <div class="container-fluid">
-            <div class="row">
-              <SideBar />
-              <Content />
+      <LoadingContextProvider>
+        <MovieContextProvider>
+          <div className="App">
+            <div class="container-fluid">
+              <div class="row">
+                <SideBar />
+                <Content />
+                <Footer />
+              </div>
             </div>
           </div>
-        </div>
-      </MovieContextProvider>
+        </MovieContextProvider>
+      </LoadingContextProvider>
     </React.Fragment>
   );
 }
