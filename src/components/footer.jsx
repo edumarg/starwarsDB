@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="my-footer">
       <div>
         <p>Made By Eduardo Margulis </p>
         <a href="https://www.freepnglogos.com/pics/star-wars-logo">

@@ -25,22 +25,6 @@ const SideBar = () => {
   };
   return (
     <React.Fragment>
-      <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <button
-          className="navbar-toggler d-md-none collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#sidebarMenu"
-          aria-controls="sidebarMenu"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <p className="navbar-toggler-icon"></p>
-        </button>
-        <p className="navbar-brand col-md-3 col-lg-2 me-0 px-3">
-          Star Wars Films
-        </p>
-      </header>
       <nav
         id="sidebarMenu"
         className="col-md-3 col-lg-2 d-md-block text-white bg-dark sidebar collapse App-Header"
@@ -48,32 +32,32 @@ const SideBar = () => {
         <div className="position-sticky pt-3 ">
           <ul className="nav flex-column">
             <li className="nav-item" onClick={() => getMovieInfo(4)}>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link movie-link" to="/">
                 Episode I: The Phantom Menace
               </Link>
             </li>
             <li className="nav-item" onClick={() => getMovieInfo(5)}>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link movie-link" to="/">
                 Episode II: Attack Of The Clones
               </Link>
             </li>
             <li className="nav-item" onClick={() => getMovieInfo(6)}>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link movie-link" to="/">
                 Episode III: Revenge Of The Sith
               </Link>
             </li>
             <li className="nav-item" onClick={() => getMovieInfo(1)}>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link movie-link" to="/">
                 Episode IV: A New Hope
               </Link>
             </li>
             <li className="nav-item" onClick={() => getMovieInfo(2)}>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link movie-link" to="/">
                 Episode V: The Empire Strikes Back
               </Link>
             </li>
             <li className="nav-item" onClick={() => getMovieInfo(3)}>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link movie-link" to="/">
                 Episode VI: Return Of the Jedi
               </Link>
             </li>

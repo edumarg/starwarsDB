@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  min-height: 100vh;
 }
 
 .App-logo {
@@ -30,4 +29,27 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.my-footer {
+  background-color: grey;
+  color: white;
+  padding: 10px 0;
+}
+
+.my-content {
+  background-color: black;
+  color: yellow;
+}
+
+.movie-link {
+  color: yellow;
+}
+
+.movie-link:focus {
+  color: #f8ac0f;
+}
+
+.movie-link:hover {
+  color: #f28b1a;
 }

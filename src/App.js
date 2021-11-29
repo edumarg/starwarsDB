@@ -7,6 +7,7 @@ import SideBar from "./components/SideBar";
 import { MovieContextProvider } from "./context/movieContext";
 import { LoadingContextProvider } from "./context/loadingContext";
 import Footer from "./components/footer";
+import Header from "./components/header";
 
 function App() {
   return (
@@ -25,11 +26,16 @@ function App() {
       <LoadingContextProvider>
         <MovieContextProvider>
           <div className="App">
-            <div class="container-fluid">
-              <div class="row">
+            <div className="container-fluid" style={{ height: "100%" }}>
+              <div className="row">
+                <Header />
+              </div>
+              <div className="row" style={{ height: "calc(100% - 95px)" }}>
                 <SideBar />
                 <Content />
-                <Footer />
+              </div>
+              <div className="row">
+                <Footer className="my-footer" />
               </div>
             </div>
           </div>

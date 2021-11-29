@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { MovieContext } from "../context/movieContext";
 import { LoadingContext } from "../context/loadingContext";
-import logo from "../star-wars-logo-981.png";
+import logo from "../files/star-wars-logo-981.png";
 
 const Content = () => {
   const [movie] = useContext(MovieContext);
@@ -9,7 +9,7 @@ const Content = () => {
 
   return (
     <React.Fragment>
-      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 App-Header my-content">
         <div>
           {/* <h1>Star Wars</h1> */}
           <img src={logo} className="App-logo" alt="logo" />
