@@ -26,7 +26,7 @@ function App() {
       <LoadingContextProvider>
         <MovieContextProvider>
           <div className="App">
-            <div className="container-fluid" style={{ height: "100%" }}>
+            <div className="container-fluid my-container">
               <div className="row">
                 <Header />
               </div>

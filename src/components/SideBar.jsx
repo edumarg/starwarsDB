@@ -27,7 +27,7 @@ const SideBar = () => {
     <React.Fragment>
       <nav
         id="sidebarMenu"
-        className="col-md-3 col-lg-2 d-md-block text-white bg-dark sidebar collapse App-Header"
+        className="col-sm-12 col-md-2 d-md-block text-white bg-dark sidebar collapse App-Header"
       >
         <div className="position-sticky pt-3 ">
           <ul className="nav flex-column">

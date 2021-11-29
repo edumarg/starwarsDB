@@ -31,10 +31,17 @@
   }
 }
 
+.my-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .my-footer {
   background-color: grey;
   color: white;
   padding: 10px 0;
+  font-size: 1.5rem;
 }
 
 .my-content {
@@ -44,6 +51,7 @@
 
 .movie-link {
   color: yellow;
+  font-size: 1.5rem;
 }
 
 .movie-link:focus {

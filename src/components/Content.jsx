@@ -34,7 +34,7 @@ const Content = () => {
 
   return (
     <React.Fragment>
-      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 App-Header my-content">
+      <main className="col-sm-12 ms-sm-auto col-md-10 px-md-4 App-Header my-content">
         <div>
           <img src={logo} className="App-logo" alt="logo" />
         </div>
@@ -42,7 +42,7 @@ const Content = () => {
           <div>
             <div
               className="spinner-border text-warning"
-              style={{ width: "10rem", height: "10rem", margin: "100px auto" }}
+              style={{ width: "5rem", height: "5rem", margin: "100px auto" }}
               role="status"
             >
               <span className="visually-hidden">Loading...</span>
@@ -55,7 +55,7 @@ const Content = () => {
             </h3>
             <p className="mb-0">{`Directed by: ${movie.director}`}</p>
             <p>{`Release Date: ${movie.release_date}`}</p>
-            <h4 className="my-4" style={{ width: "50%", margin: "0 auto" }}>
+            <h4 className="my-4" style={{ width: "60%", margin: "0 auto" }}>
               {`${movie.opening_crawl}`}
             </h4>
             <Like
