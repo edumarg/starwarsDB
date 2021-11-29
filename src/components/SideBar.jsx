@@ -1,4 +1,4 @@
-import React, { useContext, useHistory } from "react";
+import React, { useContext } from "react";
 import { MovieContext } from "../context/movieContext";
 import { LoadingContext } from "../context/loadingContext";
 import { getMovie } from "../services/movieService";
@@ -6,8 +6,8 @@ import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
-  const [movie, setMovie] = useContext(MovieContext);
-  const [loading, setLoading] = useContext(LoadingContext);
+  const [, setMovie] = useContext(MovieContext);
+  const [, setLoading] = useContext(LoadingContext);
 
   const getMovieInfo = async (id) => {
     let MyMovie = undefined;

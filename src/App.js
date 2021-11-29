@@ -30,7 +30,7 @@ function App() {
               <div className="row">
                 <Header />
               </div>
-              <div className="row" style={{ height: "calc(100% - 95px)" }}>
+              <div className="row" style={{ height: "100%" }}>
                 <SideBar />
                 <Content />
               </div>
