@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useLocalStorage } from "react";
 import { MovieContext } from "../context/movieContext";
 import { LoadingContext } from "../context/loadingContext";
-import logo from "../files/star-wars-logo-981.png";
+import logo from "../files/star-wars-logo-500.png";
 import Like from "./like";
 
 const Content = () => {
@@ -36,19 +36,20 @@ const Content = () => {
     <React.Fragment>
       <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 App-Header my-content">
         <div>
-          {/* <h1>Star Wars</h1> */}
           <img src={logo} className="App-logo" alt="logo" />
         </div>
         {loading ? (
-          <div
-            className="spinner-border text-warning"
-            style={{ width: "10rem", height: "10rem" }}
-            role="status"
-          >
-            <span className="visually-hidden">Loading...</span>
+          <div>
+            <div
+              className="spinner-border text-warning"
+              style={{ width: "10rem", height: "10rem", margin: "100px auto" }}
+              role="status"
+            >
+              <span className="visually-hidden">Loading...</span>
+            </div>
           </div>
         ) : movie?.title ? (
-          <div>
+          <div style={{ margin: "15px 0" }}>
             <h3>
               <span>{`Episode ${movie.episode_id}: ${movie.title}`}</span>
             </h3>

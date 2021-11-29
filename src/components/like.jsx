@@ -5,7 +5,10 @@ import { faThumbsUp as ThumbsUpSolid } from "@fortawesome/free-solid-svg-icons/"
 
 const Like = ({ like, onClick }) => {
   return (
-    <div onClick={onClick} style={{ cursor: "pointer", color: "yellow" }}>
+    <div
+      onClick={onClick}
+      style={{ cursor: "pointer", color: "yellow", margin: "15px 0" }}
+    >
       <FontAwesomeIcon
         style={{ color: "yellow" }}
         icon={like ? ThumbsUpSolid : ThumbsUpRegular}
