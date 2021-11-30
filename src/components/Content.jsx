@@ -10,7 +10,6 @@ const Content = () => {
   const [loading] = useContext(LoadingContext);
   const [movies] = useContext(MoviesContext);
   let moviesLength = movies?.length || 6;
-
   const favoritesInitArray = [...Array(moviesLength)].map((x) => false);
   const [favorites, setFavorites] = useState(favoritesInitArray);
 

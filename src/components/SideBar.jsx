@@ -20,7 +20,7 @@ const SideBar = () => {
     { title: "Episode VI: Return Of the Jedi", id: 3 },
   ];
 
-  useEffect(() => setMovies(myMovies), [myMovies]);
+  useEffect(() => setMovies(myMovies), []);
 
   const getMovieInfo = async (id) => {
     let MyMovie = undefined;
