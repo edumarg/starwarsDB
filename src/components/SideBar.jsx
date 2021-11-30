@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { MovieContext } from "../context/movieContext";
+import { MoviesContext } from "../context/moviesContext";
 import { LoadingContext } from "../context/loadingContext";
 import { getMovie } from "../services/movieService";
 import { toast } from "react-toastify";
@@ -8,6 +9,7 @@ import { Link } from "react-router-dom";
 const SideBar = () => {
   const [, setMovie] = useContext(MovieContext);
   const [, setLoading] = useContext(LoadingContext);
+  const [, setMovies] = useContext(MoviesContext);
 
   const myMovies = [
     { title: "Episode I : The Phantom Menace", id: 4 },
@@ -17,6 +19,8 @@ const SideBar = () => {
     { title: "Episode V: The Empire Strikes Back", id: 2 },
     { title: "Episode VI: Return Of the Jedi", id: 3 },
   ];
+
+  useEffect(() => setMovies(myMovies), [myMovies]);
 
   const getMovieInfo = async (id) => {
     let MyMovie = undefined;

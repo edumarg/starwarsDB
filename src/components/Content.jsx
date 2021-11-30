@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useContext, useLocalStorage } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { MovieContext } from "../context/movieContext";
+import { MoviesContext } from "../context/moviesContext";
 import { LoadingContext } from "../context/loadingContext";
 import logo from "../files/star-wars-logo-500.png";
 import Like from "./like";
@@ -7,7 +8,8 @@ import Like from "./like";
 const Content = () => {
   const [movie] = useContext(MovieContext);
   const [loading] = useContext(LoadingContext);
-  let moviesLength = 6;
+  const [movies] = useContext(MoviesContext);
+  let moviesLength = movies?.length || 6;
 
   const favoritesInitArray = [...Array(moviesLength)].map((x) => false);
   const [favorites, setFavorites] = useState(favoritesInitArray);
