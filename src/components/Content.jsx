@@ -7,28 +7,21 @@ import Like from "./like";
 const Content = () => {
   const [movie] = useContext(MovieContext);
   const [loading] = useContext(LoadingContext);
-  const [favorites, setFavorites] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  let moviesLength = 6;
+
+  const favoritesInitArray = [...Array(moviesLength)].map((x) => false);
+  const [favorites, setFavorites] = useState(favoritesInitArray);
 
   useEffect(() => {
     const myFavorites = JSON.parse(window.localStorage.getItem("favorites"));
-    console.log("myFavorites UE", myFavorites);
-    setFavorites(myFavorites || [false, false, false, false, false, false]);
+    setFavorites(myFavorites || favoritesInitArray);
   }, []);
 
   const handleFavorites = (id) => {
     const index = id - 1;
-    console.log("favorites handel", favorites);
     let myFavorites = [...favorites];
     myFavorites[index] = !myFavorites[index];
     setFavorites(myFavorites);
-    console.log("my favorites handle", myFavorites);
     window.localStorage.setItem("favorites", JSON.stringify(myFavorites));
   };
 

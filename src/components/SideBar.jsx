@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { MovieContext } from "../context/movieContext";
 import { LoadingContext } from "../context/loadingContext";
 import { getMovie } from "../services/movieService";
@@ -8,6 +8,15 @@ import { Link } from "react-router-dom";
 const SideBar = () => {
   const [, setMovie] = useContext(MovieContext);
   const [, setLoading] = useContext(LoadingContext);
+
+  const myMovies = [
+    { title: "Episode I : The Phantom Menace", id: 4 },
+    { title: "Episode II: Attack Of The Clones", id: 5 },
+    { title: "Episode III: Revenge Of The Sith", id: 6 },
+    { title: "Episode IV: A New Hope", id: 1 },
+    { title: "Episode V: The Empire Strikes Back", id: 2 },
+    { title: "Episode VI: Return Of the Jedi", id: 3 },
+  ];
 
   const getMovieInfo = async (id) => {
     let MyMovie = undefined;
@@ -23,6 +32,7 @@ const SideBar = () => {
     }
     setLoading(false);
   };
+
   return (
     <React.Fragment>
       <nav
@@ -31,36 +41,19 @@ const SideBar = () => {
       >
         <div className="position-sticky pt-3 ">
           <ul className="nav flex-column">
-            <li className="nav-item" onClick={() => getMovieInfo(4)}>
-              <Link className="nav-link movie-link" to="/">
-                Episode I: The Phantom Menace
-              </Link>
-            </li>
-            <li className="nav-item" onClick={() => getMovieInfo(5)}>
-              <Link className="nav-link movie-link" to="/">
-                Episode II: Attack Of The Clones
-              </Link>
-            </li>
-            <li className="nav-item" onClick={() => getMovieInfo(6)}>
-              <Link className="nav-link movie-link" to="/">
-                Episode III: Revenge Of The Sith
-              </Link>
-            </li>
-            <li className="nav-item" onClick={() => getMovieInfo(1)}>
-              <Link className="nav-link movie-link" to="/">
-                Episode IV: A New Hope
-              </Link>
-            </li>
-            <li className="nav-item" onClick={() => getMovieInfo(2)}>
-              <Link className="nav-link movie-link" to="/">
-                Episode V: The Empire Strikes Back
-              </Link>
-            </li>
-            <li className="nav-item" onClick={() => getMovieInfo(3)}>
-              <Link className="nav-link movie-link" to="/">
-                Episode VI: Return Of the Jedi
-              </Link>
-            </li>
+            {myMovies.map((movie) => {
+              return (
+                <li
+                  key={movie.id}
+                  className="nav-item"
+                  onClick={() => getMovieInfo(movie.id)}
+                >
+                  <Link className="nav-link movie-link" to="/">
+                    {movie.title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </nav>
